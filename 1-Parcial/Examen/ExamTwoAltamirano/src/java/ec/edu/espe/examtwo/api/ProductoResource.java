@@ -56,6 +56,18 @@ public class ProductoResource {
         }
         return productosModel;
     }
+    
+    /*@POST
+    public Response createUser(List<ec.edu.espe.examtwo.repositorykardex.> productos) {
+        ProductoWS_Service service = new ProductoWS_Service();
+        ProductoWS port = service.getProductoWSPort();     
+        List<Producto> productosModel = new ArrayList<>();   
+        for (ec.edu.espe.examtwo.repository.Producto produc : productos) {
+            //port.existenciaProducto(codigo, Integer.SIZE);
+            productosModel.add(this.buildProducto(produc));
+        }
+        return Response.ok(productosModel).build();
+    }*/
 
     /*@POST
     public Response createUser(List<ec.edu.espe.examtwo.repositorykardex.> productos) {
