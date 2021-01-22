@@ -15,9 +15,11 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -37,32 +39,47 @@ public class ProductoResource {
     }
 
     /**
-     * Retrieves representation of an instance of ec.edu.espe.examtwo.repository.ProductoResource
+     * Retrieves representation of an instance of
+     * ec.edu.espe.examtwo.repository.ProductoResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
-        @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Producto> getJson() {
         ProductoWS_Service service = new ProductoWS_Service();
         ProductoWS port = service.getProductoWSPort();
         List<ec.edu.espe.examtwo.repository.Producto> productos = port.listarProducto();
         List<Producto> productosModel = new ArrayList<>();
-        for(ec.edu.espe.examtwo.repository.Producto producto : productos){
+        for (ec.edu.espe.examtwo.repository.Producto producto : productos) {
             productosModel.add(this.buildProducto(producto));
         }
         return productosModel;
     }
 
+    /*@POST
+    public Response createUser(List<ec.edu.espe.examtwo.repositorykardex.> productos) {
+        ProductoWS_Service service = new ProductoWS_Service();
+        ProductoWS port = service.getProductoWSPort();     
+        List<Producto> productosModel = new ArrayList<>();   
+        for (ec.edu.espe.examtwo.repository.Producto produc : productos) {
+            //port.existenciaProducto(codigo, Integer.SIZE);
+            productosModel.add(this.buildProducto(produc));
+        }
+        return Response.ok(productosModel).build();
+    }*/
+
     /**
      * PUT method for updating or creating an instance of ProductoResource
+     *
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-    
-    private Producto buildProducto(ec.edu.espe.examtwo.repository.Producto producto){
+
+    private Producto buildProducto(ec.edu.espe.examtwo.repository.Producto producto) {
         Producto produc = new Producto();
         produc.setCodigo(producto.getCodigo());
         produc.setNombre(producto.getNombre());

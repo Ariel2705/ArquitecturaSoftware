@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/ExamOneAltamirano-war/ProductoWS?wsdl" uri="src/conf/xml-resources/web-service-references/ProductoWS/wsdl/localhost_8080/ExamOneAltamirano-war/ProductoWS.wsdl"/>
     <system systemId="http://localhost:8080/ExamOneAltamirano-war/ProductoWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductoWS/wsdl/localhost_8080/ExamOneAltamirano-war/ProductoWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ExamOneAltamirano-war/ProductoKardexWS?wsdl" uri="src/conf/xml-resources/web-service-references/ProductoKardexWS/wsdl/localhost_8080/ExamOneAltamirano-war/ProductoKardexWS.wsdl"/>
+    <system systemId="http://localhost:8080/ExamOneAltamirano-war/ProductoKardexWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductoKardexWS/wsdl/localhost_8080/ExamOneAltamirano-war/ProductoKardexWS.xsd_1.xsd"/>
 </catalog>
