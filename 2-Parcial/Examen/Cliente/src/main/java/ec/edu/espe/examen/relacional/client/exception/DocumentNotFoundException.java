@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.examen.relacional.exception;
+package ec.edu.espe.examen.relacional.client.exception;
 
-public class DocumentNotFoundException extends Exception{
+public class DocumentNotFoundException extends Exception {
+    
     public DocumentNotFoundException(String message) {
         super(message);
     }
+    
 }

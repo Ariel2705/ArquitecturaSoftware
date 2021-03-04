@@ -44,13 +44,13 @@ public class ProductoService {
     
     public void update(Producto producto) throws UpdateException {
         try {
-            Optional<Producto> productoFind = this.productoRepo.findById(producto.getCodigo());
-            if(!productoFind.isPresent()){
-                productoFind.get().setNombre("".equals(producto.getNombre()) ? producto.getNombre() : productoFind.get().getNombre());
-                productoFind.get().setExistencia(producto.getExistencia() != null ? producto.getExistencia(): productoFind.get().getExistencia());
-                productoFind.get().setValorUnitario(producto.getValorUnitario()!= null ? producto.getValorUnitario(): productoFind.get().getValorUnitario());
-                productoFind.get().setAplicaIva("".equals(producto.getAplicaIva()) ? producto.getAplicaIva(): productoFind.get().getAplicaIva());
-                this.productoRepo.save(productoFind.get());
+            Producto prod = this.productoRepo.findByCodigo(producto.getCodigo());
+            if(prod != null){
+                prod.setNombre("".equals(producto.getNombre()) ? producto.getNombre() : prod.getNombre());
+                prod.setExistencia(producto.getExistencia() != null ? producto.getExistencia(): prod.getExistencia());
+                prod.setValorUnitario(producto.getValorUnitario()!= null ? producto.getValorUnitario(): prod.getValorUnitario());
+                prod.setAplicaIva("".equals(producto.getAplicaIva()) ? producto.getAplicaIva(): prod.getAplicaIva());
+                this.productoRepo.save(prod);
             }else{
                 throw new UpdateException("Producto", "No se encontro el producto: " + producto.getNombre());
             }

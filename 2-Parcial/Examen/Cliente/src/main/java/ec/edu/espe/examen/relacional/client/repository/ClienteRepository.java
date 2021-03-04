@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.examen.relacional.repository;
+package ec.edu.espe.examen.relacional.client.repository;
 
-import ec.edu.espe.examen.relacional.model.Producto;
+import ec.edu.espe.examen.relacional.client.model.Cliente;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author hecto
  */
-public interface ProductoRepository extends CrudRepository <Producto, String> {
-    Producto findByCodigo(String codigo);
-    Producto findTopByOrderByCodigoDesc();
+public interface ClienteRepository  extends CrudRepository <Cliente, String> {
+    Cliente findByCedula(String cedula);
 }
