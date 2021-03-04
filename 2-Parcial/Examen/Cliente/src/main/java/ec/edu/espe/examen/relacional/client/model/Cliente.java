@@ -26,17 +26,17 @@ import lombok.Setter;
 public class Cliente {
     @Id
     @Column(name = "CEDULA", nullable = false, length = 8)
-    private String codigo;
+    private String cedula;
     
     @Column(name = "NOMBRE", nullable = false, length = 100)
     private String nombre;
     
     @Column(name = "DIRECCION", nullable = false, length = 100)
-    private String existencia;
+    private String direccion;
     
     @Column(name = "TELEFONO", nullable = false, length = 16)
-    private String valorUnitario;
+    private String telefono;
     
     @Column(name = "CORREO", nullable = false, length = 100)
-    private String aplicaIva;
+    private String correo;
 }
