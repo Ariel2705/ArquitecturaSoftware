@@ -9,6 +9,9 @@ import ec.edu.espe.examen.relacional.client.exception.DocumentNotFoundException;
 import ec.edu.espe.examen.relacional.client.exception.InsertException;
 import ec.edu.espe.examen.relacional.client.model.Cliente;
 import ec.edu.espe.examen.relacional.client.service.ClienteService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +39,11 @@ public class ClienteController {
     }
     
     @GetMapping("/findCliente/{cedula}")
+    @ApiOperation(value = "Busqueda de cliente por número de cedula", notes = "Busqueda de cliete por número de cedula. La cedula de un cliente es unica.")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Cliente encontrado"),
+        @ApiResponse(code = 404, message = "Cliente no encontrado")
+    })
     public ResponseEntity findClientById(@PathVariable String cedula) {
         try {
             return ResponseEntity.ok(this.service.findByCedula(cedula));
@@ -45,6 +53,11 @@ public class ClienteController {
     }
     
     @PostMapping("/create")
+    @ApiOperation(value = "Crea un cliente", notes = "Crea un cliente. El cliente se agregara a la factura.")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Cliente creado"),
+        @ApiResponse(code = 400, message = "Error al crear cliente")
+    })
     public ResponseEntity create(@RequestBody Cliente cliente) {
         try {
             this.service.create(cliente);
