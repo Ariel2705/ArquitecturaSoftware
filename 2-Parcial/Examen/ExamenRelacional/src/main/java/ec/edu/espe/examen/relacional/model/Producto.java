@@ -33,18 +33,16 @@ import lombok.Setter;
 @Table(name = "producto")
 public class Producto {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COD_PRODUCTO", nullable = false)
-    private Integer codigo;
+    @Column(name = "COD_PRODUCTO", nullable = false, length = 8)
+    private String codigo;
     
-    @Column(name = "NOMBRE", nullable = false)
+    @Column(name = "NOMBRE", nullable = false, length = 120)
     private String nombre;
     
     @Column(name = "EXISTENCIA", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private BigDecimal existencia;
     
-    @Column(name = "VALOR_UNITARIO", nullable = false, length = 12)
+    @Column(name = "VALOR_UNITARIO", nullable = false)
     private BigDecimal valorUnitario;
     
     @Column(name = "APLICA_IVA", nullable = false)
